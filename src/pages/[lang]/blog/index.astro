@@ -1,0 +1,21 @@
+---
+import PostCard from '@components/PostCard.astro';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { isLocale, locales, ui } from '@lib/i18n';
+import { getAllBlogPosts, getPostsForLocale } from '@lib/posts';
+
+export function getStaticPaths() {
+  return locales.filter((locale) => locale !== 'ko').map((lang) => ({ params: { lang } }));
+}
+
+const locale = isLocale(Astro.params.lang) ? Astro.params.lang : 'ko';
+const t = ui[locale];
+const posts = getPostsForLocale(await getAllBlogPosts(), locale);
+---
+
+<BaseLayout title={t.blog} locale={locale}>
+  <h1 class="page-title">{t.blog}</h1>
+  <div class="post-list">
+    {posts.length ? posts.map((post) => <PostCard post={post} locale={locale} />) : <p>{t.noPosts}</p>}
+  </div>
+</BaseLayout>

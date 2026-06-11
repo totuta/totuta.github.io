@@ -1,0 +1,24 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { isLocale, locales, ui, type Locale } from '@lib/i18n';
+
+export function getStaticPaths() {
+  return locales.filter((locale) => locale !== 'ko').map((lang) => ({ params: { lang } }));
+}
+
+const locale = isLocale(Astro.params.lang) ? Astro.params.lang : 'ko';
+const t = ui[locale];
+const copy: Record<Locale, string> = {
+  ko: 'AI, 컴퓨터 과학, 머신러닝, 시스템, 소프트웨어 엔지니어링을 공부하고 구현하며 배운 내용을 기록합니다.',
+  en: 'I write about what I learn while studying and building AI, computer science, machine learning, systems, and software engineering projects.',
+  ja: 'AI、コンピュータサイエンス、機械学習、システム、ソフトウェアエンジニアリングを学び実装する中で得た知見を記録します。',
+  zh: '记录我在学习和构建 AI、计算机科学、机器学习、系统和软件工程项目时获得的经验。',
+};
+---
+
+<BaseLayout title={t.about} locale={locale}>
+  <h1 class="page-title">{t.about}</h1>
+  <div class="prose">
+    <p>{copy[locale]}</p>
+  </div>
+</BaseLayout>

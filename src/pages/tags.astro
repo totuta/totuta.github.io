@@ -1,0 +1,34 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { getLocalizedPath, ui } from '@lib/i18n';
+import { getAllBlogPosts, getPostsForLocale, getTagsForLocale } from '@lib/posts';
+
+const locale = 'ko';
+const t = ui[locale];
+const posts = getPostsForLocale(await getAllBlogPosts(), locale);
+const tags = getTagsForLocale(posts, locale);
+---
+
+<BaseLayout title={t.tags} locale={locale}>
+  <h1 class="page-title">{t.tags}</h1>
+  <div class="post-list">
+    {
+      tags.map(([tag]) => (
+        <section id={tag}>
+          <h2>{tag}</h2>
+          <ul>
+            {posts
+              .filter((post) => post.data.tags.includes(tag))
+              .map((post) => (
+                <li>
+                  <a href={getLocalizedPath(locale, `/blog/${post.id.split('/').slice(0, -1).join('/')}`)}>
+                    {post.data.title}
+                  </a>
+                </li>
+              ))}
+          </ul>
+        </section>
+      ))
+    }
+  </div>
+</BaseLayout>

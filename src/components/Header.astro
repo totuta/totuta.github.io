@@ -1,0 +1,28 @@
+---
+import LanguageSelector from './LanguageSelector.astro';
+import { getLocalizedPath, ui, type LanguageLink, type Locale } from '@lib/i18n';
+
+interface Props {
+  locale: Locale;
+  languageLinks?: LanguageLink[];
+}
+
+const { locale, languageLinks } = Astro.props;
+const t = ui[locale];
+
+const nav = [
+  { href: getLocalizedPath(locale, '/'), label: t.home },
+  { href: getLocalizedPath(locale, '/blog'), label: t.blog },
+  { href: getLocalizedPath(locale, '/projects'), label: t.projects },
+  { href: getLocalizedPath(locale, '/about'), label: t.about },
+  { href: getLocalizedPath(locale, '/tags'), label: t.tags },
+];
+---
+
+<header class="site-header">
+  <a class="brand" href={getLocalizedPath(locale, '/')}>{t.siteTitle}</a>
+  <nav aria-label="Primary navigation">
+    {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+  </nav>
+  <LanguageSelector locale={locale} languageLinks={languageLinks} />
+</header>

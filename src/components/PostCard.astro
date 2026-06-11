@@ -1,0 +1,24 @@
+---
+import { formatDate, getLocalizedPath, getSlugFromId, ui, type BlogPost, type Locale } from '@lib/i18n';
+
+interface Props {
+  post: BlogPost;
+  locale: Locale;
+}
+
+const { post, locale } = Astro.props;
+const slug = getSlugFromId(post.id);
+const t = ui[locale];
+---
+
+<article class="post-card">
+  <p class="post-meta">
+    <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date, locale)}</time>
+  </p>
+  <h2><a href={getLocalizedPath(locale, `/blog/${slug}`)}>{post.data.title}</a></h2>
+  <p>{post.data.description}</p>
+  <div class="tags">
+    {post.data.tags.map((tag) => <a href={getLocalizedPath(locale, `/tags#${encodeURIComponent(tag)}`)}>{tag}</a>)}
+  </div>
+  <a class="read-more" href={getLocalizedPath(locale, `/blog/${slug}`)}>{t.readMore}</a>
+</article>

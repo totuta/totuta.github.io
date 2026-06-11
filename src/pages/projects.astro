@@ -1,0 +1,14 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { ui } from '@lib/i18n';
+
+const locale = 'ko';
+const t = ui[locale];
+---
+
+<BaseLayout title={t.projects} locale={locale}>
+  <h1 class="page-title">{t.projects}</h1>
+  <div class="prose">
+    <p>진행 중인 연구와 소프트웨어 프로젝트를 정리할 공간입니다.</p>
+  </div>
+</BaseLayout>

@@ -1,0 +1,48 @@
+---
+title: "Starting a Technical Blog with Astro"
+description: "A first example post using MDX, LaTeX, code blocks, and images."
+date: 2026-06-10
+updated: 2026-06-10
+lang: en
+translationKey: hello-astro
+tags: ["astro", "mdx", "math"]
+draft: false
+---
+
+This is a sample post for checking the writing format of the blog. MDX lets you combine Markdown with components, while math is rendered through `remark-math` and `rehype-katex`.
+
+Inline math looks like this: $E = mc^2$.
+
+Block math is written like this.
+
+$$
+\nabla_\theta J(\theta) =
+\mathbb{E}_{\tau \sim \pi_\theta}
+\left[
+  \sum_{t=0}^{T} \nabla_\theta \log \pi_\theta(a_t \mid s_t) R(\tau)
+\right]
+$$
+
+## Code Example
+
+```ts
+type Post = {
+  title: string;
+  tags: string[];
+};
+
+export function hasTag(post: Post, tag: string) {
+  return post.tags.includes(tag);
+}
+```
+
+## Image and Caption
+
+Place images under `public/images` and reference them with absolute paths.
+
+<figure>
+  <img src="/images/sample-diagram.svg" alt="Example diagram used in a blog post" />
+  <figcaption>Use figure and figcaption for image captions.</figcaption>
+</figure>
+
+Add new posts under `src/content/blog/<post-slug>/<lang>.mdx`.

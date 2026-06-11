@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="title desc">
+  <title id="title">Sample technical diagram</title>
+  <desc id="desc">A simple pipeline diagram from idea to post to readers.</desc>
+  <rect width="960" height="420" fill="#f8fafc"/>
+  <rect x="80" y="130" width="200" height="120" rx="8" fill="#ffffff" stroke="#0f766e" stroke-width="3"/>
+  <rect x="380" y="130" width="200" height="120" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="3"/>
+  <rect x="680" y="130" width="200" height="120" rx="8" fill="#ffffff" stroke="#7c3aed" stroke-width="3"/>
+  <path d="M295 190h70" stroke="#64748b" stroke-width="4" stroke-linecap="round"/>
+  <path d="m355 176 18 14-18 14" fill="none" stroke="#64748b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M595 190h70" stroke="#64748b" stroke-width="4" stroke-linecap="round"/>
+  <path d="m655 176 18 14-18 14" fill="none" stroke="#64748b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="180" y="184" text-anchor="middle" font-family="system-ui, sans-serif" font-size="28" font-weight="700" fill="#111827">Idea</text>
+  <text x="180" y="218" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" fill="#64748b">notes and code</text>
+  <text x="480" y="184" text-anchor="middle" font-family="system-ui, sans-serif" font-size="28" font-weight="700" fill="#111827">Post</text>
+  <text x="480" y="218" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" fill="#64748b">MDX and math</text>
+  <text x="780" y="184" text-anchor="middle" font-family="system-ui, sans-serif" font-size="28" font-weight="700" fill="#111827">Readers</text>
+  <text x="780" y="218" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" fill="#64748b">web and RSS</text>
+</svg>
