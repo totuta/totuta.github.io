@@ -21,8 +21,8 @@ export const localeLabels: Record<Locale, string> = {
 
 export const ui = {
   ko: {
-    siteTitle: 'Totuta',
-    siteDescription: 'AI, 컴퓨터 과학, 머신러닝, 시스템, 소프트웨어 엔지니어링을 다루는 기술 블로그',
+    siteTitle: 'totuta',
+    siteDescription: '이제 와서 묻기 어려운 AI/ML',
     home: '홈',
     blog: '블로그',
     about: '소개',
@@ -33,8 +33,8 @@ export const ui = {
     noPosts: '아직 공개된 글이 없습니다.',
   },
   en: {
-    siteTitle: 'Totuta',
-    siteDescription: 'A technical blog about AI, computer science, machine learning, systems, and software engineering.',
+    siteTitle: 'totuta',
+    siteDescription: 'AI/ML Questions You Were Afraid to Ask',
     home: 'Home',
     blog: 'Blog',
     about: 'About',
@@ -45,8 +45,8 @@ export const ui = {
     noPosts: 'No published posts yet.',
   },
   ja: {
-    siteTitle: 'Totuta',
-    siteDescription: 'AI、コンピュータサイエンス、機械学習、システム、ソフトウェアエンジニアリングの技術ブログ',
+    siteTitle: 'totuta',
+    siteDescription: 'いまさら聞けないAI/ML',
     home: 'ホーム',
     blog: 'ブログ',
     about: '紹介',
@@ -57,8 +57,8 @@ export const ui = {
     noPosts: '公開済みの記事はまだありません。',
   },
   zh: {
-    siteTitle: 'Totuta',
-    siteDescription: '关于 AI、计算机科学、机器学习、系统和软件工程的技术博客',
+    siteTitle: 'totuta',
+    siteDescription: '现在才问也不晚的 AI/ML',
     home: '首页',
     blog: '博客',
     about: '关于',
