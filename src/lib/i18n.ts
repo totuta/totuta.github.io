@@ -22,7 +22,7 @@ export const localeLabels: Record<Locale, string> = {
 export const ui = {
   ko: {
     siteTitle: 'totuta',
-    siteDescription: '이제 와서 묻기 어려운 AI/ML',
+    siteDescription: '이제 와서 물어보기 어려운 AI/ML',
     home: '홈',
     blog: '블로그',
     about: '소개',
