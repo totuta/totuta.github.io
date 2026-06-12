@@ -1,0 +1,55 @@
+---
+title: "上海自来水来自海上"
+description: "人过大佛寺，寺佛大过人。保留 MDX、数学、代码和图片骨架的回文示例。"
+date: 2026-06-10
+updated: 2026-06-11
+lang: zh
+translationKey: hello-astro
+tags: ["astro", "mdx", "math"]
+draft: false
+---
+
+上海自来水来自海上。
+
+人过大佛寺，寺佛大过人。
+
+山东落花生花落东山。黄山落叶松叶落山黄。
+
+这篇文章保留原来的示例骨架：MDX、LaTeX、代码块和图片都还在，只是把可见文字换成了回文味道。
+
+行内公式这样写：$E = mc^2$。上海自来水来自海上。
+
+块级公式这样写。人过大佛寺，寺佛大过人。
+
+$$
+\nabla_\theta J(\theta) =
+\mathbb{E}_{\tau \sim \pi_\theta}
+\left[
+  \sum_{t=0}^{T} \nabla_\theta \log \pi_\theta(a_t \mid s_t) R(\tau)
+\right]
+$$
+
+## 上海
+
+```ts
+type Level = {
+  name: 'level' | 'radar' | 'rotor';
+  tags: string[];
+};
+
+export function isPalindrome(value: string) {
+  const normalized = value.replace(/\s/g, '').toLowerCase();
+  return normalized === [...normalized].reverse().join('');
+}
+```
+
+## 海上
+
+图片放在 `public/images` 下面，用绝对路径引用。黄山落叶松叶落山黄。
+
+<figure>
+  <img src="/images/sample-diagram.svg" alt="回文示例文章中使用的图示" />
+  <figcaption>人过大佛寺，寺佛大过人。</figcaption>
+</figure>
+
+新文章添加到 `src/content/blog/<post-slug>/<lang>.mdx`。山东落花生花落东山。

@@ -1,6 +1,6 @@
 ---
-title: "Starting a Technical Blog with Astro"
-description: "A first example post using MDX, LaTeX, code blocks, and images."
+title: "Never Odd or Even"
+description: "A playful palindrome-flavored sample post that still keeps the MDX, math, code, and image skeleton."
 date: 2026-06-10
 updated: 2026-06-10
 lang: en
@@ -9,11 +9,15 @@ tags: ["astro", "mdx", "math"]
 draft: false
 ---
 
-This is a sample post for checking the writing format of the blog. MDX lets you combine Markdown with components, while math is rendered through `remark-math` and `rehype-katex`.
+Never odd or even.
 
-Inline math looks like this: $E = mc^2$.
+Level. Radar. Rotor. Civic. Refer.
 
-Block math is written like this.
+This is still the sample post for checking the blog format. The MDX, LaTeX, code block, and image skeleton remain, but the visible copy now leans into palindromes.
+
+Inline math looks like this: $E = mc^2$. Level is level.
+
+Block math is written like this. Never odd or even.
 
 $$
 \nabla_\theta J(\theta) =
@@ -23,26 +27,27 @@ $$
 \right]
 $$
 
-## Code Example
+## Radar
 
 ```ts
-type Post = {
-  title: string;
+type Level = {
+  name: 'level' | 'radar' | 'rotor';
   tags: string[];
 };
 
-export function hasTag(post: Post, tag: string) {
-  return post.tags.includes(tag);
+export function isPalindrome(value: string) {
+  const normalized = value.replace(/\s/g, '').toLowerCase();
+  return normalized === [...normalized].reverse().join('');
 }
 ```
 
-## Image and Caption
+## Rotor
 
-Place images under `public/images` and reference them with absolute paths.
+Place images under `public/images` and reference them with absolute paths. Civic.
 
 <figure>
-  <img src="/images/sample-diagram.svg" alt="Example diagram used in a blog post" />
-  <figcaption>Use figure and figcaption for image captions.</figcaption>
+  <img src="/images/sample-diagram.svg" alt="Example diagram used in a palindrome sample post" />
+  <figcaption>Never odd or even.</figcaption>
 </figure>
 
-Add new posts under `src/content/blog/<post-slug>/<lang>.mdx`.
+Add new posts under `src/content/blog/<post-slug>/<lang>.mdx`. Refer.

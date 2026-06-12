@@ -1,0 +1,53 @@
+---
+title: "たけやぶやけた"
+description: "しんぶんし、わたしまけましたわ。MDXの骨格は残した回文サンプルです。"
+date: 2026-06-10
+updated: 2026-06-11
+lang: ja
+translationKey: hello-astro
+tags: ["astro", "mdx", "math"]
+draft: false
+---
+
+たけやぶやけた。
+
+しんぶんし。わたしまけましたわ。とまと。きつつき。
+
+このページは、もとのサンプル記事の骨格を残したまま、見える言葉を回文寄りにした遊びです。MDX、LaTeX、コードブロック、画像の例はそのまま残します。
+
+インライン数式はこう書きます: $E = mc^2$。とまと。
+
+ブロック数式はこう書きます。しんぶんし。
+
+$$
+\nabla_\theta J(\theta) =
+\mathbb{E}_{\tau \sim \pi_\theta}
+\left[
+  \sum_{t=0}^{T} \nabla_\theta \log \pi_\theta(a_t \mid s_t) R(\tau)
+\right]
+$$
+
+## しんぶんし
+
+```ts
+type Level = {
+  name: 'level' | 'radar' | 'rotor';
+  tags: string[];
+};
+
+export function isPalindrome(value: string) {
+  const normalized = value.replace(/\s/g, '').toLowerCase();
+  return normalized === [...normalized].reverse().join('');
+}
+```
+
+## とまと
+
+画像は `public/images` に置き、絶対パスで参照します。たけやぶやけた。
+
+<figure>
+  <img src="/images/sample-diagram.svg" alt="回文サンプル記事で使うダイアグラム例" />
+  <figcaption>わたしまけましたわ。</figcaption>
+</figure>
+
+新しい記事は `src/content/blog/<post-slug>/<lang>.mdx` に追加します。きつつき。
