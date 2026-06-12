@@ -82,13 +82,35 @@ nav {
   font-size: 0.95rem;
 }
 
-.language-selector select {
-  max-width: 112px;
+.language-selector {
+  display: flex;
+  gap: 4px;
+  justify-content: flex-end;
+}
+
+.language-selector a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  height: 30px;
   border: 1px solid var(--border);
   border-radius: 6px;
-  background: var(--surface);
-  color: var(--text);
-  padding: 6px 8px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.language-selector a:hover {
+  color: var(--accent-strong);
+  text-decoration: none;
+}
+
+.language-selector a[aria-current='page'] {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  color: var(--accent-strong);
 }
 
 .hero {

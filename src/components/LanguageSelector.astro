@@ -16,23 +16,12 @@ const links = languageLinks ?? locales.map((nextLocale) => ({
     }));
 ---
 
-<label class="language-selector">
-  <span class="sr-only">Language</span>
-  <select aria-label="Language" data-language-selector>
-    {
-      links.map((link) => (
-        <option value={link.href} selected={link.current}>
-          {link.label}
-        </option>
-      ))
-    }
-  </select>
-</label>
-
-<script>
-  for (const selector of document.querySelectorAll<HTMLSelectElement>('[data-language-selector]')) {
-    selector.addEventListener('change', () => {
-      window.location.href = selector.value;
-    });
+<nav class="language-selector" aria-label="Language">
+  {
+    links.map((link) => (
+      <a href={link.href} aria-current={link.current ? 'page' : undefined} title={link.label}>
+        {link.locale.toUpperCase()}
+      </a>
+    ))
   }
-</script>
+</nav>
