@@ -1,0 +1,43 @@
+---
+title: "Breaking Down QKV"
+description: "Why Query, Key, Value, and d_k are tied together inside attention."
+date: 2026-06-11
+updated: 2026-06-17
+lang: en
+translationKey: grokking-qkv-notes
+tags: ["ai", "machine-learning", "transformer", "attention"]
+draft: false
+---
+
+<figure>
+  <img src="/images/blog/grokking-qkv/qkv-attention-overview.png" alt="Query and Value viewed as stacked token-vector sequences" />
+  <figcaption>Query and Value can be thought of as stacked token-vector sequences.</figcaption>
+</figure>
+
+So why do we divide by `sqrt(d_k)` when scaling?
+
+$$
+  \mathrm{Attention}(Q, K, V) =
+\mathrm{softmax}\left(\frac{QK^\top}{\sqrt{d_k}}\right)V
+$$
+
+Not completely statistically precise, but statistically useful enough.
+
+For random vectors with dimensionality `d_k`, the variance of their dot product grows with `d_k`, and the standard deviation is on the order of `sqrt(d_k)`.
+
+That is why we divide by `sqrt(d_k)` to normalize the scale.
+
+Without that normalization:
+
+- dot products can become extremely large
+- softmax computation can become numerically unstable
+
+Here is the torch-style code:
+
+```ts
+export function scale(dot: number, dimension: number) {
+  return dot / Math.sqrt(dimension);
+}
+```
+
+And while we are here, it is worth thinking about KV caching too.

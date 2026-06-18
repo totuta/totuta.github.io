@@ -89,6 +89,12 @@ src/content/blog/my-post/zh.mdx
 
 Keep the same `translationKey` across all translations. Set `lang` to the matching locale.
 
+## Semi-Automatic Translation
+
+See [docs/translation-workflow.md](./docs/translation-workflow.md) for the full workflow, environment variables, and recommended usage.
+
+The key name is `OPENAI_API_KEY` in the script. `OPEN_API_KEY` is a typo.
+
 ## Images and Captions
 
 Put static images in `public/images` and reference them with absolute paths:

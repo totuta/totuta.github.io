@@ -1,32 +1,41 @@
 ---
 title: "QKV 뽀개기"
-description: "QKV를 완전히 뽀개보자"
+description: "Attention에서 Query, Key, Value 와 d_k 가 왜 그렇게 엮이는지."
 date: 2026-06-11
-updated: 2026-06-11
+updated: 2026-06-17
 lang: ko
 translationKey: grokking-qkv-notes
 tags: ["ai", "machine-learning", "transformer", "attention"]
 draft: false
 ---
 
-본문을 여기에 씁니다.
+<figure>
+  <img src="/images/blog/grokking-qkv/qkv-attention-overview.png" alt="Q 와 V는 토큰 벡터 시퀀스를 세로로 쌓아올렸다고 보면 됨" />
+  <figcaption>Q 와 V는 토큰 벡터 시퀀스를 세로로 쌓아올린 것</figcaption>
+</figure>
 
-인라인 수식: $QK^\top$
-
-블록 수식:
+근데 왜 $\sqrt{d_k}$ 로 나눠서 Scaling 은 왜 하지?
 
 $$
-\mathrm{Attention}(Q, K, V) =
+  \mathrm{Attention}(Q, K, V) =
 \mathrm{softmax}\left(\frac{QK^\top}{\sqrt{d_k}}\right)V
 $$
 
+Not completely statistically precise, but statistical enough.
+
+$d_k$ 의 차원수를 갖는 랜덤 벡터 간의 내적의 분산이 $d_k$ 이고, 표준 편차는 $\sqrt{d_k}$.
+
+그래서 이것의 sqrt 로 나누어서(scaling) normalization 을 하겠다는 것.
+
+정규화를 안하면,
+- Dot product 값이 극단적으로 커질 수가 있고
+- 컴퓨터로 softmax 를 계산하게 되는데, 수치적 불안정성을 유발할 수 있음
+
+여기서 torch code 한 번 눈에 넣어놓고,
 ```ts
 export function scale(dot: number, dimension: number) {
   return dot / Math.sqrt(dimension);
 }
 ```
 
-<figure>
-  <img src="/images/sample-diagram.svg" alt="예시 다이어그램" />
-  <figcaption>이미지 캡션 예시입니다.</figcaption>
-</figure>
+말 나온 김에, KV Caching 에 대해서 생각해 보면,

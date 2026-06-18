@@ -1,0 +1,43 @@
+---
+title: "QKV をほどく"
+description: "Attention で Query, Key, Value と d_k がなぜそう結びつくのかを整理します。"
+date: 2026-06-11
+updated: 2026-06-17
+lang: ja
+translationKey: grokking-qkv-notes
+tags: ["ai", "machine-learning", "transformer", "attention"]
+draft: false
+---
+
+<figure>
+  <img src="/images/blog/grokking-qkv/qkv-attention-overview.png" alt="Query と Value を token ベクトル列として縦に積み上げたように見た図" />
+  <figcaption>Query と Value は、トークンベクトル列を縦に積み上げたものとして考えるとわかりやすいです。</figcaption>
+</figure>
+
+では、なぜ `sqrt(d_k)` で割って scaling するのでしょうか。
+
+$$
+  \mathrm{Attention}(Q, K, V) =
+\mathrm{softmax}\left(\frac{QK^\top}{\sqrt{d_k}}\right)V
+$$
+
+統計的に完全に厳密というわけではありませんが、直感としては十分です。
+
+`d_k` 次元のランダムベクトル同士の内積は、分散がおおむね `d_k` に比例し、標準偏差は `sqrt(d_k)` 程度になります。
+
+だから `sqrt(d_k)` で割って scale し、値の大きさを正規化するわけです。
+
+正規化しないと:
+
+- dot product の値が極端に大きくなりうる
+- softmax 計算で数値的不安定性が起きうる
+
+ここで torch 風のコードを見ておきます。
+
+```ts
+export function scale(dot: number, dimension: number) {
+  return dot / Math.sqrt(dimension);
+}
+```
+
+ついでに、KV caching についても考えてみるとよいです。

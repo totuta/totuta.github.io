@@ -7,7 +7,8 @@
     "dev": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "translate:post": "node scripts/translate-post.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.9",

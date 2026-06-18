@@ -198,6 +198,13 @@ nav {
   font-size: 1.04rem;
 }
 
+.writing-status {
+  margin: 0 0 1rem;
+  color: #ff5fa2;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
 .prose h2,
 .prose h3 {
   margin-top: 2.2em;
