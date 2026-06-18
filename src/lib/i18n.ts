@@ -23,6 +23,7 @@ export const ui = {
   ko: {
     siteTitle: 'totuta',
     siteDescription: '이제 와서 물어보기 어려운 AI/ML',
+    writingStatus: '작성중',
     home: '홈',
     blog: '블로그',
     about: '소개',
@@ -35,6 +36,7 @@ export const ui = {
   en: {
     siteTitle: 'totuta',
     siteDescription: 'AI/ML Questions You Were Afraid to Ask',
+    writingStatus: 'Draft',
     home: 'Home',
     blog: 'Blog',
     about: 'About',
@@ -47,6 +49,7 @@ export const ui = {
   ja: {
     siteTitle: 'totuta',
     siteDescription: 'いまさら聞けないAI/ML',
+    writingStatus: '執筆中',
     home: 'ホーム',
     blog: 'ブログ',
     about: '紹介',
@@ -59,6 +62,7 @@ export const ui = {
   zh: {
     siteTitle: 'totuta',
     siteDescription: '现在才问也不晚的 AI/ML',
+    writingStatus: '写作中',
     home: '首页',
     blog: '博客',
     about: '关于',

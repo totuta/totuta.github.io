@@ -1,6 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
-import { formatDate, getLocalizedPath, type BlogPost, type LanguageLink, type Locale } from '@lib/i18n';
+import { formatDate, getLocalizedPath, ui, type BlogPost, type LanguageLink, type Locale } from '@lib/i18n';
 
 interface Props {
   post: BlogPost;
@@ -9,6 +9,7 @@ interface Props {
 }
 
 const { post, locale, languageLinks } = Astro.props;
+const t = ui[locale];
 ---
 
 <BaseLayout title={post.data.title} description={post.data.description} locale={locale} languageLinks={languageLinks}>
@@ -25,6 +26,7 @@ const { post, locale, languageLinks } = Astro.props;
       </div>
     </header>
     <div class="prose">
+      <p class="writing-status">{t.writingStatus}</p>
       <slot />
     </div>
   </article>
