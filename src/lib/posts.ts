@@ -1,6 +1,8 @@
 import { getCollection } from 'astro:content';
 import { defaultLocale, isPublished, type BlogPost, type Locale, sortPosts } from './i18n';
 
+export type PostCategory = BlogPost['data']['category'];
+
 export async function getAllBlogPosts() {
   return sortPosts((await getCollection('blog')).filter(isPublished));
 }
@@ -22,6 +24,10 @@ export function getPostsForLocale(posts: BlogPost[], locale: Locale) {
       );
     }),
   );
+}
+
+export function getPostsByCategory(posts: BlogPost[], category: PostCategory) {
+  return posts.filter((post) => post.data.category === category);
 }
 
 export function getTagsForLocale(posts: BlogPost[], locale: Locale) {

@@ -9,11 +9,12 @@ const blog = defineCollection({
   }),
   schema: z.object({
     title: z.string(),
-    description: z.string(),
+    description: z.string().optional(),
     date: z.coerce.date(),
     updated: z.coerce.date().optional(),
     lang: z.enum(['ko', 'en', 'ja', 'zh']),
     translationKey: z.string(),
+    category: z.enum(['ai-ml', 'stories']).default('ai-ml'),
     tags: z.array(z.string()).default([]),
     draft: z.boolean().default(false),
   }),

@@ -2,7 +2,7 @@
 import PostCard from '@components/PostCard.astro';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import { isLocale, locales, ui, type Locale } from '@lib/i18n';
-import { getAllBlogPosts, getPostsForLocale } from '@lib/posts';
+import { getAllBlogPosts, getPostsByCategory, getPostsForLocale } from '@lib/posts';
 
 export function getStaticPaths() {
   return locales.filter((locale) => locale !== 'ko').map((lang) => ({ params: { lang } }));
@@ -10,7 +10,7 @@ export function getStaticPaths() {
 
 const locale = isLocale(Astro.params.lang) ? Astro.params.lang : 'ko';
 const t = ui[locale];
-const posts = getPostsForLocale(await getAllBlogPosts(), locale).slice(0, 5);
+const posts = getPostsByCategory(getPostsForLocale(await getAllBlogPosts(), locale), 'ai-ml').slice(0, 5);
 
 const intro: Record<Locale, string> = {
   ko: 'AI에게 물어봐도 딱 이해가 안되는 내용들에 대해서.',

@@ -70,12 +70,19 @@ date: 2026-06-10
 updated: 2026-06-10
 lang: ko
 translationKey: my-post
+    category: ai-ml
 tags: ["ai", "systems"]
 draft: false
 ---
 ```
 
 Draft posts are included during local development and excluded from production builds.
+The `description` field is optional; omit it when a post should have no subtitle.
+
+Posts with `category: ai-ml` appear on `/blog`, and posts with `category: stories`
+appear on `/stories`. Existing posts without `category` default to `ai-ml`.
+The same sections are available under `/en`, `/ja`, and `/zh`. Keep the
+category consistent across translations. Post URLs remain `/blog/<post-slug>`.
 
 ## Add Translations
 

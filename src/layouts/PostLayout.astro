@@ -1,6 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
-import { formatDate, getLocalizedPath, ui, type BlogPost, type LanguageLink, type Locale } from '@lib/i18n';
+import { formatDate, getLocalizedPath, type BlogPost, type LanguageLink, type Locale } from '@lib/i18n';
 
 interface Props {
   post: BlogPost;
@@ -9,7 +9,6 @@ interface Props {
 }
 
 const { post, locale, languageLinks } = Astro.props;
-const t = ui[locale];
 ---
 
 <BaseLayout title={post.data.title} description={post.data.description} locale={locale} languageLinks={languageLinks}>
@@ -20,13 +19,12 @@ const t = ui[locale];
         {post.data.updated && <span>Updated {formatDate(post.data.updated, locale)}</span>}
       </p>
       <h1>{post.data.title}</h1>
-      <p class="lead">{post.data.description}</p>
+      {post.data.description && <p class="lead">{post.data.description}</p>}
       <div class="tags">
         {post.data.tags.map((tag) => <a href={getLocalizedPath(locale, `/tags#${encodeURIComponent(tag)}`)}>{tag}</a>)}
       </div>
     </header>
     <div class="prose">
-      <p class="writing-status">{t.writingStatus}</p>
       <slot />
     </div>
   </article>

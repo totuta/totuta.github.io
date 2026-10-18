@@ -2,11 +2,11 @@
 import PostCard from '@components/PostCard.astro';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import { ui } from '@lib/i18n';
-import { getAllBlogPosts, getPostsForLocale } from '@lib/posts';
+import { getAllBlogPosts, getPostsByCategory, getPostsForLocale } from '@lib/posts';
 
 const locale = 'ko';
 const t = ui[locale];
-const posts = getPostsForLocale(await getAllBlogPosts(), locale).slice(0, 5);
+const posts = getPostsByCategory(getPostsForLocale(await getAllBlogPosts(), locale), 'ai-ml').slice(0, 5);
 ---
 
 <BaseLayout locale={locale}>
