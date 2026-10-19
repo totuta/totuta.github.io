@@ -30,7 +30,6 @@ export const ui = {
     projects: '프로젝트',
     tags: '태그',
     latestPosts: '최근 글',
-    readMore: '읽기',
     noPosts: '아직 공개된 글이 없습니다.',
   },
   en: {
@@ -43,7 +42,6 @@ export const ui = {
     projects: 'Projects',
     tags: 'Tags',
     latestPosts: 'Latest posts',
-    readMore: 'Read',
     noPosts: 'No published posts yet.',
   },
   ja: {
@@ -56,7 +54,6 @@ export const ui = {
     projects: 'プロジェクト',
     tags: 'タグ',
     latestPosts: '最近の記事',
-    readMore: '読む',
     noPosts: '公開済みの記事はまだありません。',
   },
   zh: {
@@ -69,7 +66,6 @@ export const ui = {
     projects: '项目',
     tags: '标签',
     latestPosts: '最新文章',
-    readMore: '阅读',
     noPosts: '还没有已发布的文章。',
   },
 } satisfies Record<Locale, Record<string, string>>;

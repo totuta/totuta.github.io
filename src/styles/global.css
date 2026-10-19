@@ -179,10 +179,6 @@ nav {
   font-size: 0.86rem;
 }
 
-.read-more {
-  font-weight: 650;
-}
-
 .post {
   width: min(100%, 760px);
   margin: 0 auto;
